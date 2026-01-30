@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  moltbot:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: moltbot-gateway
+    restart: always
+    volumes:
+      - ../config:/app/config
+      - ../data:/app/data
+    ports:
+      - "127.0.0.1:18789:18789" # Bind to localhost for security
+    environment:
+      - MOLT_CONFIG_PATH=/app/config/moltbot.json
+    depends_on:
+      - sandbox
+
+  sandbox:
+    image: moltbot/sandbox:latest
+    container_name: moltbot-sandbox
+    restart: always
+    volumes:
+      - ../data:/data
+    security_opt:
+      - no-new-privileges:true

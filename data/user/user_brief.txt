@@ -1,0 +1,6 @@
+[STANDARD USER DATA]
+Standard Information Access:
+- This folder contains public documents for Q&A.
+- Users can query the agent for information contained here.
+- No modifications allowed.
+This file serves as a reference for agents providing answers in the 'Standard User' role.

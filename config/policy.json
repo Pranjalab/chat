@@ -1,0 +1,50 @@
+{
+    "roles": {
+        "admin": {
+            "description": "Full access to all system tools and all directories.",
+            "tool_allowlist": [
+                "*"
+            ],
+            "data_access": [
+                "admin",
+                "pro-user",
+                "user"
+            ],
+            "scopes": [
+                "operator.admin",
+                "system.*",
+                "fs.*",
+                "browser.*"
+            ]
+        },
+        "pro-user": {
+            "description": "Access to pro-level tools and pro-user data folder.",
+            "tool_allowlist": [
+                "fs.read",
+                "fs.write",
+                "logic.*",
+                "browser.read"
+            ],
+            "data_access": [
+                "pro-user"
+            ],
+            "scopes": [
+                "fs.read:/data/pro-user",
+                "fs.write:/data/pro-user"
+            ]
+        },
+        "user": {
+            "description": "Limited access to standard tools and user data folder for Q&A.",
+            "tool_allowlist": [
+                "fs.read",
+                "logic.*"
+            ],
+            "data_access": [
+                "user"
+            ],
+            "scopes": [
+                "fs.read:/data/user"
+            ]
+        }
+    }
+}
