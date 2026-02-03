@@ -1,0 +1,26 @@
+{
+  "providers": {
+    "ollama": {
+      "baseUrl": "http://ollama:11434/v1",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "llama3.1:8b",
+          "name": "llama3.1:8b",
+          "contextWindow": 16000,
+          "reasoning": false,
+          "input": [
+            "text"
+          ],
+          "cost": {
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
+          },
+          "maxTokens": 8192
+        }
+      ]
+    }
+  }
+}

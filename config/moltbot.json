@@ -1,0 +1,49 @@
+{
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "token": "secret-admin-token"
+    }
+  },
+  "agents": {
+    "list": [
+      {
+        "id": "admin",
+        "name": "System Admin",
+        "default": true,
+        "workspace": "/app/data/admin/root",
+        "tools": {
+          "allow": [
+            "*"
+          ]
+        },
+        "model": "ollama/llama3.1:8b"
+      }
+    ],
+    "defaults": {
+      "model": {
+        "primary": "ollama/llama3.1:8b"
+      }
+    }
+  },
+  "models": {
+    "providers": {
+      "ollama": {
+        "baseUrl": "http://ollama:11434/v1",
+        "api": "openai-completions",
+        "models": [
+          {
+            "id": "llama3.1:8b",
+            "name": "llama3.1:8b",
+            "contextWindow": 16000
+          }
+        ]
+      }
+    }
+  },
+  "bindings": [],
+  "hooks": {
+    "enabled": true,
+    "token": "secret-hooks-token"
+  }
+}

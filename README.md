@@ -3,6 +3,8 @@
 A professional, well-structured deployment of [Moltbot](https://github.com/moltbot/moltbot) as a 24/7 secure service on Linux.
 
 ## Features
+- **Local LLM Integration**: Full support for local inference via [Ollama](https://ollama.com).
+- **GPU Acceleration**: NVIDIA GPU support enabled for low-latency local model execution.
 - **Local-first Gateway**: Single control plane for sessions, channels, tools, and events.
 - **Multi-channel Inbox**: Connect to WhatsApp, Telegram, Slack, Discord, and more.
 - **Role-Based Access Control (RBAC)**: Centralized `policy.json` to manage tool and data access.
@@ -10,9 +12,9 @@ A professional, well-structured deployment of [Moltbot](https://github.com/moltb
 - **Voice & Talk Mode**: Integration-ready for ElevenLabs and voice interfaces.
 
 ## Project Structure
-- `config/`: Contains `policy.json` (access rules) and `users.json` (user database).
+- `config/`: Contains `moltbot.json` (LLM configuration), `policy.json` (access rules), and `users.json` (user database).
 - `data/`: Isolated folders for `admin`, `pro-user`, and `user` roles.
-- `docker/`: Build files for containerized deployment.
+- `docker/`: Build files for containerized deployment (with GPU support).
 
 ## Access Control Matrix
 
@@ -41,6 +43,27 @@ Start the services with Docker Compose:
 ```bash
 docker-compose -f docker/docker-compose.yml up -d
 ```
+
+**Monitor logs and activity:**
+```bash
+# Option 1: Live agent activity (Recommended for debugging Chet)
+docker exec -it moltbot-gateway node dist/index.js logs --follow
+
+# Option 2: Diagnostic health check
+docker exec -it moltbot-gateway node dist/index.js doctor
+
+# Option 3: Basic system logs
+docker logs -f moltbot-gateway
+```
+
+### 4. Local LLM Setup (Optional)
+If you want to use a local LLM via Ollama:
+1. Ensure your GPU is recognized (see [GPU Troubleshooting](docs/issues/ollama_connection.md)).
+2. Pull a compatible model:
+   ```bash
+   docker exec ollama ollama pull llama3.1:8b
+   ```
+3. Configure `config/moltbot.json` to point to the local provider.
 
 ## How to Use This App
 
@@ -73,6 +96,13 @@ python3 src/main.py add-user --role pro_user --name "John Doe" --email "john@exa
 - **Step 2**: The bot replies with a **Pairing Code**.
 - **Step 3**: You (the Admin) approve the pairing code using the Moltbot UI or CLI.
 - **Step 4**: The bot automatically applies the permissions defined for that user in `policy.json`.
+
+### 4. Direct Agent Interaction
+You can also interact with the agent directly from the host terminal:
+```bash
+# Talk to the 'main' agent
+docker exec moltbot-gateway node dist/index.js agent --message "How is the local GPU performing?" --agent main
+```
 
 ---
 

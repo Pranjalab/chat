@@ -1,0 +1,9 @@
+.git
+node_modules
+dist
+moltbot-src/.git
+moltbot-src/node_modules
+moltbot-src/dist
+moltbot-src/apps
+moltbot-src/assets
+moltbot-src/vendor

@@ -1,50 +1,46 @@
 {
     "roles": {
         "admin": {
-            "description": "Full access to all system tools and all directories.",
-            "tool_allowlist": [
+            "description": "Full system access",
+            "tools_allow": [
                 "*"
             ],
-            "data_access": [
-                "admin",
-                "pro-user",
-                "user"
-            ],
-            "scopes": [
-                "operator.admin",
-                "system.*",
-                "fs.*",
-                "browser.*"
-            ]
+            "sandbox_mode": "off",
+            "model": "ollama/llama3.1:8b"
         },
-        "pro-user": {
-            "description": "Access to pro-level tools and pro-user data folder.",
-            "tool_allowlist": [
-                "fs.read",
-                "fs.write",
-                "logic.*",
-                "browser.read"
+        "pro_user": {
+            "description": "Standard user with enhanced tool access",
+            "tools_allow": [
+                "group:fs",
+                "group:knowledge",
+                "browser",
+                "message",
+                "memory_search"
             ],
-            "data_access": [
-                "pro-user"
+            "tools_deny": [
+                "exec",
+                "cron",
+                "gateway"
             ],
-            "scopes": [
-                "fs.read:/data/pro-user",
-                "fs.write:/data/pro-user"
-            ]
+            "sandbox_mode": "all",
+            "model": "ollama/llama3.1:8b"
         },
         "user": {
-            "description": "Limited access to standard tools and user data folder for Q&A.",
-            "tool_allowlist": [
-                "fs.read",
-                "logic.*"
+            "description": "Basic user with limited access",
+            "tools_allow": [
+                "read",
+                "write",
+                "message"
             ],
-            "data_access": [
-                "user"
+            "tools_deny": [
+                "exec",
+                "cron",
+                "gateway",
+                "browser",
+                "fs_delete"
             ],
-            "scopes": [
-                "fs.read:/data/user"
-            ]
+            "sandbox_mode": "all",
+            "model": "ollama/llama3.1:8b"
         }
     }
 }

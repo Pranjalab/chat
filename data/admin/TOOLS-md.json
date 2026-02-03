@@ -1,0 +1,7 @@
+{
+    "file_path": "/app/data/admin/TOOLS-md.json",
+    "data": {
+        "tools": ["read", "edit", "write"],
+        "last_updated": "December 2023"
+    }
+}

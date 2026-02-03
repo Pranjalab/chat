@@ -1,0 +1,11 @@
+{
+  "id": "pro-agent",
+  "name": "Pro Analyst",
+  "model": {
+    "primary": "ollama/llama3.1:8b"
+  },
+  "workspace": "/app/data/pro-user",
+  "tools": {
+    "profile": "coding"
+  }
+}

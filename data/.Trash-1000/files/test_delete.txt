@@ -1,0 +1,2 @@
+This is a test file to verify the safe delete functionality.
+It should be moved to the .bin directory.

@@ -1,0 +1,53 @@
+services:
+  moltbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: chat-moltbot
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/app/data
+      - ./config:/root/.moltbot
+    environment:
+      - MOLTBOT_STATE_DIR=/root/.moltbot
+      - CLAWDBOT_GATEWAY_TOKEN=secret-admin-token
+      - OLLAMA_HOST=http://ollama:11434
+      - MONGO_URI=mongodb://mongodb:27017/chat
+      - NODE_ENV=development 
+    depends_on:
+      - mongodb
+      - ollama
+    networks:
+      - chat-net
+    restart: unless-stopped
+
+  mongodb:
+    image: mongo:latest
+    container_name: chat-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+    networks:
+      - chat-net
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: chat-ollama
+    volumes:
+      - ollama_data:/root/.ollama
+    ports:
+      - "11434:11434"
+    networks:
+      - chat-net
+    restart: unless-stopped
+
+networks:
+  chat-net:
+    driver: bridge
+
+volumes:
+  mongo_data:
+  ollama_data:

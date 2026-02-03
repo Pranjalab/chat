@@ -1,0 +1,69 @@
+{
+  "agent:admin:main": {
+    "sessionId": "2b1218bf-5a4e-476b-905c-7edf6066982a",
+    "updatedAt": 1769779136488,
+    "systemSent": true,
+    "abortedLastRun": false,
+    "chatType": "direct",
+    "deliveryContext": {
+      "to": "heartbeat"
+    },
+    "lastTo": "heartbeat",
+    "origin": {
+      "label": "heartbeat",
+      "provider": "heartbeat",
+      "from": "heartbeat",
+      "to": "heartbeat"
+    },
+    "sessionFile": "/root/.clawdbot/agents/admin/sessions/2b1218bf-5a4e-476b-905c-7edf6066982a.jsonl",
+    "compactionCount": 0,
+    "skillsSnapshot": {
+      "prompt": "\n\nThe following skills provide specialized instructions for specific tasks.\nUse the read tool to load a skill's file when the task matches its description.\n\n<available_skills>\n  <skill>\n    <name>bluebubbles</name>\n    <description>Build or update the BlueBubbles external channel plugin for Moltbot (extension package, REST send/probe, webhook inbound).</description>\n    <location>/app/moltbot-src/skills/bluebubbles/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>skill-creator</name>\n    <description>Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.</description>\n    <location>/app/moltbot-src/skills/skill-creator/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>weather</name>\n    <description>Get current weather and forecasts (no API key required).</description>\n    <location>/app/moltbot-src/skills/weather/SKILL.md</location>\n  </skill>\n  <skill>\n    <name>user-admin</name>\n    <description>Tools for managing Chat system users (create, list, delete, update).</description>\n    <location>/app/data/admin/root/skills/user-admin/SKILL.md</location>\n  </skill>\n</available_skills>",
+      "skills": [
+        {
+          "name": "bluebubbles"
+        },
+        {
+          "name": "skill-creator"
+        },
+        {
+          "name": "weather"
+        },
+        {
+          "name": "user-admin"
+        }
+      ],
+      "resolvedSkills": [
+        {
+          "name": "bluebubbles",
+          "description": "Build or update the BlueBubbles external channel plugin for Moltbot (extension package, REST send/probe, webhook inbound).",
+          "filePath": "/app/moltbot-src/skills/bluebubbles/SKILL.md",
+          "baseDir": "/app/moltbot-src/skills/bluebubbles",
+          "source": "moltbot-bundled"
+        },
+        {
+          "name": "skill-creator",
+          "description": "Create or update AgentSkills. Use when designing, structuring, or packaging skills with scripts, references, and assets.",
+          "filePath": "/app/moltbot-src/skills/skill-creator/SKILL.md",
+          "baseDir": "/app/moltbot-src/skills/skill-creator",
+          "source": "moltbot-bundled"
+        },
+        {
+          "name": "weather",
+          "description": "Get current weather and forecasts (no API key required).",
+          "filePath": "/app/moltbot-src/skills/weather/SKILL.md",
+          "baseDir": "/app/moltbot-src/skills/weather",
+          "source": "moltbot-bundled"
+        },
+        {
+          "name": "user-admin",
+          "description": "Tools for managing Chat system users (create, list, delete, update).",
+          "filePath": "/app/data/admin/root/skills/user-admin/SKILL.md",
+          "baseDir": "/app/data/admin/root/skills/user-admin",
+          "source": "moltbot-workspace"
+        }
+      ],
+      "version": 0
+    }
+  }
+}

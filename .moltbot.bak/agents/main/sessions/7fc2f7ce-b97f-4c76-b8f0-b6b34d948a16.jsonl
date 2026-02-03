@@ -1,0 +1,6 @@
+{"type":"session","version":3,"id":"7fc2f7ce-b97f-4c76-b8f0-b6b34d948a16","timestamp":"2026-01-30T07:35:32.800Z","cwd":"/app/data/admin"}
+{"type":"model_change","id":"daee56d6","parentId":null,"timestamp":"2026-01-30T07:35:32.805Z","provider":"openai","modelId":"gpt-4o"}
+{"type":"thinking_level_change","id":"02661495","parentId":"daee56d6","timestamp":"2026-01-30T07:35:32.805Z","thinkingLevel":"off"}
+{"type":"custom","customType":"model-snapshot","data":{"timestamp":1769758532806,"provider":"openai","modelApi":"openai-responses","modelId":"gpt-4o"},"id":"0900ce31","parentId":"02661495","timestamp":"2026-01-30T07:35:32.806Z"}
+{"type":"message","id":"b7929180","parentId":"0900ce31","timestamp":"2026-01-30T07:35:32.811Z","message":{"role":"user","content":[{"type":"text","text":"cli test"}],"timestamp":1769758532808}}
+{"type":"message","id":"3f796e35","parentId":"b7929180","timestamp":"2026-01-30T07:35:33.236Z","message":{"role":"assistant","content":[],"api":"openai-responses","provider":"openai","model":"gpt-4o","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"total":0}},"stopReason":"error","timestamp":1769758532810,"errorMessage":"401 Incorrect API key provided: ollama. You can find your API key at https://platform.openai.com/account/api-keys."}}

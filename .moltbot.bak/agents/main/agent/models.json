@@ -1,0 +1,14 @@
+{
+  "providers": {
+    "openai": {
+      "baseUrl": "http://ollama:11434/v1",
+      "api": "openai-completions",
+      "models": []
+    },
+    "ollama": {
+      "baseUrl": "http://ollama:11434/v1",
+      "api": "openai-completions",
+      "models": []
+    }
+  }
+}

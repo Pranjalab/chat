@@ -1,0 +1,65 @@
+{
+  "f2e23a77f77164329a5f6995107650edeb09e183a64cb54f9742ba5a6133d225": {
+    "deviceId": "f2e23a77f77164329a5f6995107650edeb09e183a64cb54f9742ba5a6133d225",
+    "publicKey": "gCJXbYpdJEA1HPGpdLqT2Sdr2VRmDm8nnU01LB_aIyY",
+    "platform": "linux",
+    "clientId": "cli",
+    "clientMode": "cli",
+    "role": "operator",
+    "roles": [
+      "operator"
+    ],
+    "scopes": [
+      "operator.admin",
+      "operator.approvals",
+      "operator.pairing"
+    ],
+    "tokens": {
+      "operator": {
+        "token": "b95f72c88afd4cd7b18f108c19540d1c",
+        "role": "operator",
+        "scopes": [
+          "operator.admin",
+          "operator.approvals",
+          "operator.pairing"
+        ],
+        "createdAtMs": 1769754051312,
+        "lastUsedAtMs": 1769764773215
+      }
+    },
+    "createdAtMs": 1769754051312,
+    "approvedAtMs": 1769754051312
+  },
+  "b1be6c501a2d740538096accf20d72af4f2903a71a377a96a6991663cafbdf2f": {
+    "deviceId": "b1be6c501a2d740538096accf20d72af4f2903a71a377a96a6991663cafbdf2f",
+    "publicKey": "lKI3RILk5stMGHataLFh5zty9SCNhc5r6-yjKVo1Cno",
+    "platform": "MacIntel",
+    "clientId": "moltbot-control-ui",
+    "clientMode": "webchat",
+    "role": "operator",
+    "roles": [
+      "operator"
+    ],
+    "scopes": [
+      "operator.admin",
+      "operator.approvals",
+      "operator.pairing"
+    ],
+    "remoteIp": "172.21.0.1",
+    "tokens": {
+      "operator": {
+        "token": "53fd03c87f984ae08fadf0932d64b966",
+        "role": "operator",
+        "scopes": [
+          "operator.admin",
+          "operator.approvals",
+          "operator.pairing"
+        ],
+        "createdAtMs": 1769754149262,
+        "lastUsedAtMs": 1769766293655
+      }
+    },
+    "createdAtMs": 1769754149262,
+    "approvedAtMs": 1769754149262
+  }
+}

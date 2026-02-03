@@ -1,0 +1,11 @@
+{
+  "id": "user-agent",
+  "name": "Molly",
+  "model": {
+    "primary": "ollama/llama3.1:8b"
+  },
+  "workspace": "/app/data/user",
+  "tools": {
+    "profile": "messaging"
+  }
+}

@@ -1,6 +1,7 @@
 import os
 import argparse
 import subprocess
+import json
 from pathlib import Path
 
 # Paths to our configuration files
@@ -76,7 +77,7 @@ def moltbot_doctor():
     try:
         # We use docker exec to run the command inside the running container
         result = subprocess.run(
-            ["docker", "exec", "moltbot-gateway", "moltbot", "doctor"],
+            ["docker", "exec", "moltbot-gateway", "node", "dist/index.js", "doctor"],
             capture_output=True,
             text=True
         )

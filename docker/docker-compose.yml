@@ -1,27 +1,73 @@
-version: '3.8'
-
 services:
   moltbot:
     build:
       context: ..
       dockerfile: docker/Dockerfile
+      args:
+        - CLAWDBOT_DOCKER_APT_PACKAGES=trash-cli
     container_name: moltbot-gateway
     restart: always
     volumes:
       - ../config:/app/config
       - ../data:/app/data
+      - ../.moltbot:/home/node/.moltbot
+      - ../moltbot-src/docs:/app/docs
     ports:
-      - "127.0.0.1:18789:18789" # Bind to localhost for security
+      - "18789:18789" # Exposed as requested, but only this one
     environment:
-      - MOLT_CONFIG_PATH=/app/config/moltbot.json
+      - MOLTBOT_CONFIG_PATH=/app/config/moltbot.json
+      - OPENAI_BASE_URL=http://ollama:11434/v1
+      - OPENAI_API_KEY=ollama
+      - OLLAMA_API_KEY=ollama
+      - CLAWDBOT_DOCKER_APT_PACKAGES=trash-cli
+    networks:
+      - moltbot-net
     depends_on:
+      - ollama
       - sandbox
 
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
+    restart: always
+    volumes:
+      - ollama-data:/root/.ollama
+      - /home/pranjal/Projects/models:/home/pranjal/Projects/models
+    networks:
+      - moltbot-net
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
   sandbox:
-    image: moltbot/sandbox:latest
+    build:
+      context: ..
+      dockerfile: moltbot-src/Dockerfile.sandbox
     container_name: moltbot-sandbox
     restart: always
     volumes:
       - ../data:/data
     security_opt:
       - no-new-privileges:true
+    networks:
+      - moltbot-net
+
+  mongo:
+    image: mongo:latest
+    container_name: moltbot-mongo
+    restart: always
+    volumes:
+      - /home/pranjal/projects/8pm-news/data/database:/data/db
+    networks:
+      - moltbot-net
+
+networks:
+  moltbot-net:
+    driver: bridge
+
+volumes:
+  ollama-data:

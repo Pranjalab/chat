@@ -1,0 +1,25 @@
+{
+  "id": "chet",
+  "name": "Chet",
+  "workspace": "/app/data/admin",
+  "model": {
+    "primary": "ollama/llama3.1:8b"
+  },
+  "identity": {
+    "name": "Chet",
+    "emoji": "🤵"
+  },
+  "tools": {
+    "profile": "full",
+    "allow": [
+      "group:fs",
+      "group:runtime",
+      "group:moltbot"
+    ]
+  },
+  "subagents": {
+    "allowAgents": [
+      "*"
+    ]
+  }
+}
